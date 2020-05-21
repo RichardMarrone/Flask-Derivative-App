@@ -27,6 +27,7 @@ def derive(eq):
             d.append((co*power,power-1))
 
     return d
+
 ##take string of user input and convert to format for evaluation
 def parse_input(inp):
     e = []
@@ -37,7 +38,6 @@ def parse_input(inp):
 
     #keeps track of whether or not term is negative. 1 = positive, -1 = negative
     negative = 1
-    
     for term in inp:
         if term == '+':
             continue
@@ -62,7 +62,7 @@ def parse_input(inp):
                     raise Exception
             else:
                 power = 1
-            
+
         else:
             co = float(term) * negative
             power = 0
@@ -141,3 +141,24 @@ def gen_latex(eq):
     
     res += '\)'
     return res
+
+def get_defaults(err):
+    equation = 'x^2'
+    derivative = ''
+    start_range = -10
+    end_range = 10
+    error_message = err
+    eq = parse_input(equation)
+    d = derive(eq)
+    X, D = get_vals(d,start_range,end_range)
+    X, Y = get_vals(eq,start_range,end_range)
+    derivative_text = gen_latex(d)
+    equation = gen_latex(eq)
+
+    return X,Y,D,equation,derivative_text,error_message
+
+def check_range(st,end):
+    if st > end:
+        return -1
+    else:
+        return 1
