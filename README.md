@@ -1,7 +1,4 @@
 # Flask-Derivative-App
-Simple web app for computing the derivative of a polynomial and graphing the results
-
-# Flask-Derivative-App
 
 A simple Flask app that calculates the derivative of a given polynomial and graphs both the original funciton and the derivative of it over a user-specified interval. The app is currently hosted with heroku and can be accessed at http://www.pythonderivative.com/ .
 
